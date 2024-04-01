@@ -23,6 +23,21 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   @override
   void initState() {
     super.initState();
+
+    ref.listenManual(
+      authControllerProvider,
+      (prev, current) {
+        if (current.isLoading) {
+          showDialog<void>(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => const Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+      },
+    );
   }
 
   @override

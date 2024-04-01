@@ -10,30 +10,24 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'app_router.g.dart';
 
 @Riverpod(keepAlive: true)
-GoRouter goRouter(GoRouterRef ref) {
-  final user = ref.watch(authControllerProvider).valueOrNull;
-  return GoRouter(
-    initialLocation: Routes.home.path,
-    debugLogDiagnostics: kDebugMode,
-    redirect: (context, state) {
-      talker.log('Redirecting to ${state.path}, User: $user');
-      if (user == null) {
-        return Routes.signIn.path;
-      }
-      if (state.path == Routes.signIn.path) {
-        return Routes.home.path;
-      }
-      return null;
-    },
-    routes: [
-      AppRoute(
-        Routes.signIn,
-        builder: (context, state) => const SignInScreen(),
-      ),
-      AppRoute(
-        Routes.home,
-        builder: (context, state) => const HomeScreen(),
-      ),
-    ],
-  );
-}
+GoRouter goRouter(GoRouterRef ref) => GoRouter(
+      initialLocation: Routes.home.path,
+      debugLogDiagnostics: kDebugMode,
+      redirect: (context, state) {
+        final user = ref.read(authControllerProvider).valueOrNull;
+        talker.log('Redirecting to ${state.path}, User: $user');
+        if (user == null) return Routes.signIn.path;
+        if (state.path == Routes.signIn.path) return Routes.home.path;
+        return null;
+      },
+      routes: [
+        AppRoute(
+          Routes.signIn,
+          builder: (context, state) => const SignInScreen(),
+        ),
+        AppRoute(
+          Routes.home,
+          builder: (context, state) => const HomeScreen(),
+        ),
+      ],
+    );

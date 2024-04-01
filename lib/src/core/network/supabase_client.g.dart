@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'remote_auth_repository.dart';
+part of 'supabase_client.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authRepositoryHash() => r'a1d8ce655e780bb075d9bd8a22c3da1ee70ab10a';
+String _$supabaseClientHash() => r'a423e7187c202c89ed9ab6db50e56f0695ae703d';
 
-/// See also [authRepository].
-@ProviderFor(authRepository)
-final authRepositoryProvider = Provider<AuthRepository>.internal(
-  authRepository,
-  name: r'authRepositoryProvider',
+/// See also [supabaseClient].
+@ProviderFor(supabaseClient)
+final supabaseClientProvider = Provider<SupabaseClient>.internal(
+  supabaseClient,
+  name: r'supabaseClientProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$authRepositoryHash,
+      : _$supabaseClientHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef AuthRepositoryRef = ProviderRef<AuthRepository>;
+typedef SupabaseClientRef = ProviderRef<SupabaseClient>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

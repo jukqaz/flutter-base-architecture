@@ -12,7 +12,7 @@ class HomeScreen extends ConsumerWidget {
         ),
         body: Center(
           child: ref.watch(authControllerProvider).when(
-                data: (user) => Text('Welcome ${user?.name}'),
+                data: (user) => Text('Welcome ${user?.email ?? 'Guest'}'),
                 loading: () => const CircularProgressIndicator(),
                 error: (error, _) => Text('Error: $error'),
               ),

@@ -23,7 +23,7 @@ dependencies:
 
   gap: ^3.0.1
 
-  dio: ^5.4.2+1
+  supabase_flutter: ^2.3.4
 
 dev_dependencies:
   flutter_test:
