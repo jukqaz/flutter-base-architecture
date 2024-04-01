@@ -12,7 +12,7 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ElevatedButton.icon(
         onPressed: onPressed,
-        icon: const FaIcon(FontAwesomeIcons.google),
+        icon: const FaIcon(FontAwesomeIcons.doorOpen),
         label: const Text('Sign In'),
       );
 }

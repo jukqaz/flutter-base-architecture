@@ -1,7 +1,6 @@
 import 'package:go_router/go_router.dart';
 
 enum Routes {
-  splash('/'),
   signIn('/sign-in'),
   home('/home');
 
