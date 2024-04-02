@@ -1,5 +1,5 @@
 import 'package:flutter_base_architecture/src/core/use_case/use_case.dart';
-import 'package:flutter_base_architecture/src/features/auth/data/repository/remote_auth_repository.dart';
+import 'package:flutter_base_architecture/src/features/auth/data/repository/local_auth_repository.dart';
 import 'package:flutter_base_architecture/src/features/auth/domain/entity/user_entity.dart';
 import 'package:flutter_base_architecture/src/features/auth/domain/repository/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

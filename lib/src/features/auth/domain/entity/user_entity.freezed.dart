@@ -20,7 +20,7 @@ UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserEntity {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $UserEntityCopyWith<$Res> {
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
-  $Res call({String id, String email});
+  $Res call({int id, String email});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,7 @@ abstract class _$$UserEntityImplCopyWith<$Res>
       __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String email});
+  $Res call({int id, String email});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class __$$UserEntityImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$UserEntityImpl implements _UserEntity {
       _$$UserEntityImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String email;
 
@@ -152,14 +152,13 @@ class _$UserEntityImpl implements _UserEntity {
 
 abstract class _UserEntity implements UserEntity {
   const factory _UserEntity(
-      {required final String id,
-      required final String email}) = _$UserEntityImpl;
+      {required final int id, required final String email}) = _$UserEntityImpl;
 
   factory _UserEntity.fromJson(Map<String, dynamic> json) =
       _$UserEntityImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get email;
   @override

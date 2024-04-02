@@ -7,22 +7,19 @@
     {
       "name": "Debug",
       "request": "launch",
-      "type": "dart",
-      "args": ["--dart-define-from-file", "keys.json"]
+      "type": "dart"
     },
     {
       "name": "Profile",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile",
-      "args": ["--dart-define-from-file", "keys.json"]
+      "flutterMode": "profile"
     },
     {
       "name": "Release",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "release",
-      "args": ["--dart-define-from-file", "keys.json"]
+      "flutterMode": "release"
     }
   ]
 }

@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'remote_auth_repository.dart';
+part of 'local_auth_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authRepositoryHash() => r'a1d8ce655e780bb075d9bd8a22c3da1ee70ab10a';
+String _$authRepositoryHash() => r'453057a7bcda9be25b334814618ed01d43558415';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)
