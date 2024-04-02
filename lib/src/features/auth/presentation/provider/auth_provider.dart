@@ -1,6 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_base_architecture/src/features/auth/domain/entity/user_entity.dart';
 import 'package:flutter_base_architecture/src/features/auth/domain/use_case/sign_in_use_case.dart';
-import 'package:flutter_base_architecture/src/features/auth/domain/use_case/sign_out_use_case.dart';
 import 'package:flutter_base_architecture/src/features/auth/domain/use_case/sign_up_use_case.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -23,18 +23,24 @@ class AuthController extends _$AuthController {
 
   Future<void> signUp(String email, String password) async {
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() {
+    state = await AsyncValue.guard(() async {
       final signUp = ref.read(signUpUseCaseProvider);
-      return signUp((email: email, password: password));
+      await signUp((email: email, password: password));
+      return null;
     });
   }
 
   Future<void> signOut() async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
-      final signOut = ref.read(signOutUseCaseProvider);
-      await signOut();
-      return null;
-    });
+    state = const AsyncValue.data(null);
   }
+}
+
+@Riverpod(keepAlive: true)
+Raw<ValueNotifier<UserEntity?>> currentUser(CurrentUserRef ref) {
+  ref.listen(authControllerProvider, (prev, current) {
+    ref.state = ValueNotifier(current.valueOrNull);
+  });
+
+  final user = ref.watch(authControllerProvider).valueOrNull;
+  return ValueNotifier(user);
 }

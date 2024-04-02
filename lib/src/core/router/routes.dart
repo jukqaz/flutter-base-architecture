@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 
 enum Routes {
   signIn('/sign-in'),
+  signUp('/sign-up'),
   home('/home');
 
   const Routes(this.path);

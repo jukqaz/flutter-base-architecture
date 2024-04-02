@@ -17,19 +17,12 @@ class LocalAuthRepository extends AuthRepository {
   final AppDatabase dataSource;
 
   @override
-  Future<UserEntity> signUp(String email, String password) async {
-    final generatedId = await dataSource.into(dataSource.user).insert(
-          UserCompanion.insert(
-            email: email,
-            password: password,
-          ),
-        );
-
-    return UserEntity(
-      id: generatedId,
-      email: email,
-    );
-  }
+  Future<void> signUp(String email, String password) => dataSource.into(dataSource.user).insert(
+        UserCompanion.insert(
+          email: email,
+          password: password,
+        ),
+      );
 
   @override
   Future<UserEntity> signIn(String email, String password) async {
@@ -43,5 +36,5 @@ class LocalAuthRepository extends AuthRepository {
   }
 
   @override
-  Future<void> signOut() => dataSource.delete(dataSource.user).go();
+  Future<void> signOut() async {}
 }

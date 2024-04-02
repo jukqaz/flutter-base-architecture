@@ -9,6 +9,12 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) => Scaffold(
         appBar: AppBar(
           title: const Text('Main'),
+          actions: [
+            IconButton(
+              onPressed: () => ref.read(authControllerProvider.notifier).signOut(),
+              icon: const Icon(Icons.logout),
+            ),
+          ],
         ),
         body: Center(
           child: ref.watch(authControllerProvider).when(

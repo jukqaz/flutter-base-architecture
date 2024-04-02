@@ -6,7 +6,21 @@ part of 'auth_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'49b35143b1954fd8c904f1812f88c25997bb662e';
+String _$currentUserHash() => r'b18e06a09f51d34293cefec0230ad578bf1e1031';
+
+/// See also [currentUser].
+@ProviderFor(currentUser)
+final currentUserProvider = Provider<Raw<ValueNotifier<UserEntity?>>>.internal(
+  currentUser,
+  name: r'currentUserProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$currentUserHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CurrentUserRef = ProviderRef<Raw<ValueNotifier<UserEntity?>>>;
+String _$authControllerHash() => r'6b640ad1f569ea26ece7762a64005a1b7d515ff2';
 
 /// See also [AuthController].
 @ProviderFor(AuthController)

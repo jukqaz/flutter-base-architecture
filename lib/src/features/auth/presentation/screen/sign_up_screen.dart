@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_architecture/src/core/router/routes.dart';
 import 'package:flutter_base_architecture/src/features/auth/presentation/provider/auth_provider.dart';
-import 'package:flutter_base_architecture/src/features/auth/presentation/widgets/sign_in_button.dart';
 import 'package:flutter_base_architecture/src/features/auth/presentation/widgets/sign_up_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInScreen extends ConsumerStatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends ConsumerStatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  ConsumerState<SignInScreen> createState() => _SignInScreenState();
+  ConsumerState<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends ConsumerState<SignInScreen> {
+class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
 
   String _email = '';
@@ -37,6 +35,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
             ),
           );
         }
+
+        if (current.valueOrNull != null) {
+          context.pop();
+        }
       },
     );
   }
@@ -52,7 +54,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     if (_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-      ref.read(authControllerProvider.notifier).signIn(_email, _password);
+      ref.read(authControllerProvider.notifier).signUp(_email, _password);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -65,7 +67,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Sign-In'),
+          title: const Text('Sign-Up'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
@@ -125,18 +127,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   },
                 ),
                 const Gap(16),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SignInButton(onPressed: _onPressed),
-                    const Gap(16),
-                    SignUpButton(
-                      onPressed: () {
-                        context.pushNamed(Routes.signUp.name);
-                      },
-                    ),
-                  ],
-                ),
+                SignUpButton(onPressed: _onPressed),
               ],
             ),
           ),
